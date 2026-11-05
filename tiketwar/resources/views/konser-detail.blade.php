@@ -10,11 +10,12 @@
             <p class="text-muted mb-1">Kota: {{ $konser['kota'] }}</p>
             <p class="mb-1">Harga: Rp{{ number_format($konser['harga'], 0, ',', '.') }}</p>
             <p>Sisa tiket: {{ $konser['sisa'] }}</p>
-        @if ($konser['sisa'] > 0)
+            <p>Tanggal: {{ date('d-m-Y', strtotime($konser['tanggal'])) }}</p>
+    @if ($konser['sisa'] > 0)
     <button class="btn btn-primary">War Tiket Sekarang</button>
     @else
         <button class="btn btn-secondary" disabled>Sold Out</button>
     @endif
         </div>
-        </div>
+    </div>
 @endsection

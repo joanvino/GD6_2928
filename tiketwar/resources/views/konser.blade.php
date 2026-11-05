@@ -16,6 +16,7 @@
                 <th>Harga</th>
                 <th>Sisa</th>
                 <th>Status</th>
+                <th>Tanggal</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -36,6 +37,7 @@
                             <span class="badge bg-danger">Sold Out</span>
                         @endif
                     </td>
+                    <td>{{ date('d-m-Y', strtotime($konser['tanggal'])) }}</td>
                     <td> {{-- BARU: sel tombol Detail --}}
                         <a href="{{ route('konser.detail', ['id' => $id]) }}" class="btn btn-sm btn-primary">Detail</a>
                     </td>
