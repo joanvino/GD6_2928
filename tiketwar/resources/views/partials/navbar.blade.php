@@ -6,7 +6,9 @@
             <li class="nav-item"><a class="nav-link {{ request()->routeIs('konser.*') ? 'active' : '' }}"
             href="{{ route('konser.index') }}">Konser</a></li>
             <li class="nav-item"><a class="nav-link {{ request()->routeIs('tentang') ? 'active' : '' }}"
-            href="{{ route('tentang') }}">Tentang</a></li>
+                href="{{ route('tentang') }}">Tentang</a></li>
+            <li class="nav-item"><a class="nav-link {{ request()->routeIs('kontak') ? 'active' : '' }}"
+            href="{{ route('kontak') }}">Kontak</a></li>
         </ul>
     </div>
 </nav>
