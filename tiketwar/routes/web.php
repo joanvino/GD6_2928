@@ -38,3 +38,5 @@ Route::get('/konser/kota/{kota}', function ($kota) use ($daftarKonser) {
     ]);
 
 })->whereAlpha('kota')->name('konser.kota');
+
+Route::view('/kontak', 'kontak')->name('kontak');
