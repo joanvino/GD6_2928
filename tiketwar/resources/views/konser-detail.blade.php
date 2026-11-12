@@ -3,6 +3,21 @@
 @section('title', $konser['nama'])
 
 @section('content')
+    @if($konser['sisa'] == 0)
+
+    @include('partials.alert', [
+        'tipe' => 'danger',
+        'pesan' => 'Maaf, tiket konser sudah habis!'
+    ])
+
+    @elseif($konser['sisa'] < 10)
+
+        @include('partials.alert', [
+            'tipe' => 'warning',
+            'pesan' => 'Peringatan! Tiket konser hampir habis.'
+        ])
+
+    @endif
     <a href="{{ route('konser.index') }}" class="btn btn-outline-secondary mb-3">&larr; Kembali kedaftar</a>
     <div class="card">
         <div class="card-body">
