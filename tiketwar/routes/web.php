@@ -16,12 +16,24 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/konser', [KonserController::class, 'index'])->name('konser.index');
+
 Route::get('/konser/create', [KonserController::class, 'create'])
+
     ->name('konser.create');
 Route::post('/konser', [KonserController::class, 'store'])
     ->name('konser.store');
+
 Route::get('/konser/{id}', [KonserController::class, 'show'])
- ->whereNumber('id')->name('konser.detail');
+    ->whereNumber('id')->name('konser.detail');
+
+Route::get('/konser/{id}/edit', [KonserController::class, 'edit'])
+     ->whereNumber('id')->name('konser.edit');
+
+Route::put('/konser/{id}', [KonserController::class, 'update'])
+    ->whereNumber('id')->name('konser.update');
+
+Route::delete('/konser/{id}', [KonserController::class, 'destroy'])
+    ->whereNumber('id')->name('konser.destroy');
 
 Route::view('/tentang', 'about')->name('tentang');
 
