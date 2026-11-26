@@ -9,6 +9,21 @@
         <a href="{{ route('konser.create') }}" class="btn btn-primary">Tambah Konser</a>
     </div>
     <div class="container mt-4">
+        <form method="GET" action="{{ route('konser.index') }}" class="row g-2 mb-3">
+            <div class="col-auto">
+                <select name="kota" class="form-select">
+                    <option value="">Semua kota</option>
+                    @foreach ($daftarKota as $kota)
+                        <option value="{{ $kota }}" @selected(request('kota') == $kota)>
+                            {{ $kota }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+</form>
     <table class="table table-bordered">
         <thead class="table-light">
             <tr>

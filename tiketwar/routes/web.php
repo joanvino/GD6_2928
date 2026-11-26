@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\KonserController;
+use App\Models\Konser;
+use App\Models\Promotor; 
 use App\Http\Controllers\PromotorController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +15,11 @@ $daftarKonser = [
 ];
 
 Route::get('/', function () {
-    return view('home');
+    $jumlahKonser = Konser::count();
+    $jumlahPromotor = Promotor::count();
+    $totalSisa = Konser::sum('sisa');
+
+    return view('home', compact('jumlahKonser', 'jumlahPromotor', 'totalSisa'));
 })->name('home');
 
 Route::get('/konser', [KonserController::class, 'index'])->name('konser.index');
